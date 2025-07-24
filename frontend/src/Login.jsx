@@ -32,6 +32,7 @@ const App = () => {
 
       // Chegou aqui o Login foi realizado 
       alert("Login Realizado")
+      window.location.href = "tasks.html";
       
       
     } catch (error) {

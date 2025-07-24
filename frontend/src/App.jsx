@@ -35,6 +35,7 @@ const App = () => {
       setForm({ name: "", email: "", password: "" });
       fetchUsers();
       alert("Usuário criado com sucesso!");
+      window.location.href = "login.html";
     } catch (error) {
       if (error.response && error.response.status === 409) {
         alert("E-mail já cadastrado.");

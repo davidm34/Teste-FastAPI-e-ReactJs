@@ -1,0 +1,145 @@
+/* Variáveis CSS para cores - Mantendo a base do cadastro/login */
+:root {
+    --primary-color: #4CAF50; /* Verde para as tarefas */
+    --secondary-color: #45a049; /* Verde mais escuro para hover */
+    --text-color: #333;
+    --light-gray: #f2f2f2; /* Fundo levemente cinza */
+    --border-color: #ddd;
+    --error-color: #e74c3c; /* Cor de erro para o botão de remover */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--light-gray);
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px; /* Bordas arredondadas como nos formulários */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    max-width: 500px; /* Ligeiramente mais largo que os formulários */
+    text-align: center;
+}
+
+h2 {
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.input-group input[type="text"] {
+    flex-grow: 1; /* Faz o input ocupar o máximo de espaço */
+    padding: 12px 15px; /* Padding igual aos inputs dos formulários */
+    border: 1px solid var(--border-color);
+    border-radius: 6px; /* Bordas arredondadas */
+    box-sizing: border-box;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* Sombra de foco com a cor primária */
+    outline: none;
+}
+
+.input-group button {
+    padding: 15px 20px; /* Padding igual aos botões dos formulários */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em; /* Tamanho da fonte igual aos botões dos formulários */
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    flex-shrink: 0;
+}
+
+.input-group button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
+}
+
+.input-group button:active {
+    transform: translateY(0); /* Retorna ao normal ao clicar */
+}
+
+.task-list {
+    list-style: none; /* Remove os marcadores padrão da lista */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Alinha o texto da tarefa à esquerda */
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px 15px; /* Padding consistente com inputs */
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil para cada item */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-item:last-child {
+    margin-bottom: 0;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-text {
+    flex-grow: 1;
+    word-break: break-word;
+}
+
+.task-remove-btn {
+    background-color: var(--error-color); /* Usando a cor de erro */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Botão circular */
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-remove-btn:hover {
+    background-color: #c0392b; /* Vermelho mais escuro para hover */
+    transform: scale(1.1);
+}
+
+.task-remove-btn:active {
+    transform: scale(1.0);
+}
