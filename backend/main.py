@@ -24,11 +24,18 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return crud.create_user(db=db, user=user)
 
 @app.get("/users/", response_model=schemas.UserResponse)
-def check_user_email(user_email: str, user_paswword: str, db: Session = Depends(get_db)):
+def check_user_email(login_or_register: bool, user_email: str, user_password: str, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, user_email)
-    if db_user:
-        raise HTTPException(status_code=409, detail="Usuário já existente no sistema")
-    return JSONResponse(content={"message": "Email disponível"})
+    # True = Login
+    if login_or_register:
+        password_verify = crud.verify_password(db, user_email, user_password)
+        if password_verify is None: 
+            raise HTTPException(status_code=401, detail="Senha Incorreta")      
+        return db_user
+    else:
+        if db_user:
+            raise HTTPException(status_code=409, detail="Usuário já existente no sistema")
+        return JSONResponse(content={"message": "Email disponível"})
 
 # @app.get("/users/", response_model=list[schemas.UserResponse]) # Note o `list[schemas.UserResponse]`
 # def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):

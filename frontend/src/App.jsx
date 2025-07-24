@@ -24,9 +24,10 @@ const App = () => {
     e.preventDefault();
 
     try {
+      const a = false;
       // Verifica se o email já existe
       await axios.get("http://127.0.0.1:8000/users/", {
-        params: { user_email: form.email }
+        params: {  login_or_register: a, user_email: form.email, user_password: form.password }
       });
 
       // Se chegou aqui, email está livre — pode criar o usuário
@@ -63,7 +64,7 @@ const App = () => {
             </div>
             <button type="submit">Cadastrar</button>       
             <div class="login-link">
-                Já tem uma conta? <a href="#">Faça Login</a>
+                Já tem uma conta? <a href="../login.html">Faça Login</a>
             </div>
         </form>
     </div>

@@ -136,6 +136,56 @@ input:invalid {
     border-color: var(--error-color);
 }
 
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.options a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.options a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px; /* Ajuste para o espaçamento do checkbox */
+    accent-color: var(--primary-color); /* Cor do checkbox quando marcado */
+    cursor: pointer;
+}
+
+.signup-link {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.signup-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
